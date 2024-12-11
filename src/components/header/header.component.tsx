@@ -18,6 +18,10 @@ import navLinks from "@/data/navLinks.json";
 import subLinks from "@/data/subLinks.json";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { IoMdContacts } from "react-icons/io";
+import { FaAngleDown, FaPencil } from "react-icons/fa6";
+import { RiSpeakLine } from "react-icons/ri";
+import { BsFillInfoSquareFill } from "react-icons/bs";
 
 const Header = () => {
   const [showSubheader, setShowSubheader] = useState(false);
@@ -81,6 +85,9 @@ const Header = () => {
                   }
                 >
                   {link.name}
+                  {link.name === "Support" && (
+                    <FaAngleDown className="inline-block ml-2 -mt-1" /> 
+                  )}    
                 </Link>
               </NavbarItem>
             ))}
@@ -102,7 +109,18 @@ const Header = () => {
         <SubheaderContent>
           {subLinks.map((link, idx) => (
             <SubheaderItem href={link.href} key={idx}>
-              <span className='font-semibold'>{link.title}</span>
+              <span className='flex items-center gap-2'>
+                {/* Icon */}
+                {link.title === "About Us" && <BsFillInfoSquareFill />}
+                {link.title === "Testimonials" && <RiSpeakLine />}
+                {link.title === "Blog" && <FaPencil />}
+                {link.title === "Contact Us" && <IoMdContacts />}
+
+                {/* Title */}
+                <span className='font-semibold'>{link.title}</span>
+              </span>
+
+              {/* Text */}
               <span className='text-muted-foreground'>{link.text}</span>
             </SubheaderItem>
           ))}
@@ -111,7 +129,10 @@ const Header = () => {
         {/* Subheader Footer */}
         <SubheaderFooter>
           <span>Join our dynamic team today!</span>
-          <Link href='#team' className='text-accent hover:text-accent/70 duration-300 transition-colors'>
+          <Link
+            href='#team'
+            className='text-accent hover:text-accent/70 duration-300 transition-colors'
+          >
             Reach out now
           </Link>
         </SubheaderFooter>
