@@ -1,9 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import {
+  Hamburger,
   HeaderContainer,
   HeaderWrapper,
   Logo,
+  MobileMenuContainer,
+  MobileMenuWrapper,
   NavBar,
   NavbarItem,
   NavbarWrapper,
@@ -20,12 +23,17 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { IoMdContacts } from "react-icons/io";
 import { FaAngleDown, FaPencil } from "react-icons/fa6";
-import { RiSpeakLine } from "react-icons/ri";
+import { RiCloseLargeFill, RiMenu3Fill, RiSpeakLine } from "react-icons/ri";
 import { BsFillInfoSquareFill } from "react-icons/bs";
 
 const Header = () => {
   const [showSubheader, setShowSubheader] = useState(false);
 
+  const [showMenu, setShowMenu] = useState(false);
+
+  {
+    /* Subheader Animation */
+  }
   useGSAP(() => {
     const subheader = document.getElementById("subheader");
     if (!subheader) return;
@@ -54,6 +62,31 @@ const Header = () => {
     }
   }, [showSubheader]);
 
+  {
+    /* Mobile Menu Animation */
+  }
+  useGSAP(() => {
+    if (showMenu) {
+      gsap.set("#mobile-menu", {
+        left: "100vw",
+        opacity: 0,
+      });
+
+      gsap.to("#mobile-menu", {
+        left: 0,
+        opacity: 1,
+        display: "flex",
+        duration: 0.3,
+      });
+    } else {
+      gsap.to("#mobile-menu", {
+        left: "100vw",
+        opacity: 0,
+        duration: 0.3,
+      });
+    }
+  }, [showMenu]);
+
   return (
     <HeaderWrapper>
       <HeaderContainer>
@@ -75,40 +108,75 @@ const Header = () => {
           <NavBar>
             {navLinks.map((link, idx) => (
               <NavbarItem key={idx}>
-                <Link
-                  href={link.href}
-                  key={idx}
-                  onMouseEnter={() =>
-                    link.name === "Support"
-                      ? setShowSubheader(true)
-                      : setShowSubheader(false)
-                  }
-                >
+                <Link href={link.href} key={idx}>
                   {link.name}
-                  {link.name === "Support" && (
-                    <FaAngleDown className="inline-block ml-2 -mt-1" /> 
-                  )}    
                 </Link>
               </NavbarItem>
             ))}
+            <NavbarItem
+              className='cursor-pointer text-2xl'
+              onMouseOver={() => setShowSubheader(true)}
+              onMouseLeave={() => setShowSubheader(false)}
+            >
+              Support <FaAngleDown className='inline-block ml-2 -mt-1' />
+            </NavbarItem>
           </NavBar>
-
-          {/* Sign In Button */}
         </NavbarWrapper>
+
+        {/* Sign In Button */}
         <SignInBtn>
           <Link href='/sign-in'>Sign In</Link>
         </SignInBtn>
+
+        {/* Hamburger */}
+        <Hamburger>
+          {!showMenu ? (
+            <RiMenu3Fill size={28} onClick={() => setShowMenu(true)} />
+          ) : (
+            <RiCloseLargeFill size={28} onClick={() => setShowMenu(false)} />
+          )}
+        </Hamburger>
+
+        {/* Mobile Menu */}
+        <MobileMenuWrapper id='mobile-menu'>
+          <MobileMenuContainer>
+            {/* Menu Links */}
+            <NavBar>
+              {navLinks.map((link, idx) => (
+                <NavbarItem key={idx}>
+                  <Link href={link.href} key={idx}>
+                    {link.name}
+                  </Link>
+                </NavbarItem>
+              ))}
+              <NavbarItem
+                className='cursor-pointer text-2xl'
+                onClick={() => setShowSubheader(true)}
+              >
+                Support <FaAngleDown className='inline-block ml-2 -mt-1' />
+              </NavbarItem>
+            </NavBar>
+          </MobileMenuContainer>
+        </MobileMenuWrapper>
       </HeaderContainer>
 
       {/* Subheader */}
       <Subheader
         id='subheader'
+        onMouseOver={() => setShowSubheader(true)}
         onMouseLeave={() => setShowSubheader(false)}
         style={{ opacity: 0, scale: 0, display: "none" }}
       >
         <SubheaderContent>
           {subLinks.map((link, idx) => (
-            <SubheaderItem href={link.href} key={idx}>
+            <SubheaderItem
+              href={link.href}
+              key={idx}
+              onClick={() => {
+                setShowSubheader(false);
+                setShowMenu(false);
+              }}
+            >
               <span className='flex items-center gap-2'>
                 {/* Icon */}
                 {link.title === "About Us" && <BsFillInfoSquareFill />}

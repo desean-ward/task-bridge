@@ -28,6 +28,7 @@ export const LeftContent = tw.div`
     relative
     -top-24 
     md:top-0
+    lg:top-20
 `;
 
 export const LeftContentBtns = tw.div`

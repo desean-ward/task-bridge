@@ -22,12 +22,18 @@ export const HeaderContainer = tw.div`
 export const Logo = tw(Image)``;
 
 export const NavbarWrapper = tw.nav`
+    hidden 
+    lg:block
 `;
 
 export const NavBar = tw.ul`
     flex 
+    flex-col 
+    lg:flex-row 
+    justify-center 
+    lg:justify-between
+    items-center
     w-full 
-    justify-between
     gap-4
 `;
 
@@ -36,6 +42,8 @@ export const NavbarItem = tw.li`
     duration-300 
     transition-colors
     p-8
+    text-2xl
+    lg:text-lg
 `;
 
 export const SignInBtn = tw.button`
@@ -45,14 +53,21 @@ export const SignInBtn = tw.button`
     bg-accent
     hover:bg-accent/70
     text-black
+    text-lg
     font-semibold
     duration-300 
     transition-colors
+    relative 
+    -left-10
+    lg:left-0
 `;
 
 export const Subheader = tw.div`
     absolute 
     left-0
+    top-[60vh]
+    md:top-[80vh]
+    lg:top-20
     w-fit
     bg-primary
     border 
@@ -78,6 +93,10 @@ export const SubheaderItem = tw(Link)`
 
 export const SubheaderContent = tw.div`
     flex 
+    flex-col 
+    md:flex-row 
+    gap-2 
+    md:gap-0
     justify-between
     mb-8
     px-8
@@ -89,4 +108,36 @@ export const SubheaderFooter = tw.div`
     justify-center 
     gap-2 
     py-8
+`;
+
+export const MobileMenuWrapper = tw.div`
+    lg:hidden
+    absolute
+    top-0
+    bg-primary
+    fixed 
+    overflow-hidden
+    
+`;
+
+export const MobileMenuContainer = tw.div`
+    flex 
+    flex-col
+    w-screen 
+    h-screen 
+    justify-center 
+    items-center
+`;
+
+export const Hamburger = tw.div`
+    absolute 
+    right-12
+    top-6
+    z-10
+    lg:hidden
+`;
+
+export const MobileMenuContent = tw.div`
+    w-full 
+    h-full 
 `;
