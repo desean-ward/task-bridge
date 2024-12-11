@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   HeaderContainer,
   HeaderWrapper,
@@ -7,11 +8,48 @@ import {
   NavbarItem,
   NavbarWrapper,
   SignInBtn,
+  Subheader,
+  SubheaderContent,
+  SubheaderFooter,
+  SubheaderItem,
 } from "./header.styles";
 import Link from "next/link";
 import navLinks from "@/data/navLinks.json";
+import subLinks from "@/data/subLinks.json";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Header = () => {
+  const [showSubheader, setShowSubheader] = useState(false);
+
+  useGSAP(() => {
+    const subheader = document.getElementById("subheader");
+    if (!subheader) return;
+
+    if (showSubheader) {
+      // Show animation
+      gsap.to(subheader, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: "power4.out",
+        display: "flex", // Ensure it's visible
+      });
+    } else {
+      // Hide animation
+      gsap.to(subheader, {
+        opacity: 0,
+        scale: 0,
+        duration: 0.3,
+        ease: "power4.out",
+        onComplete: () => {
+          // Ensure it's hidden after the animation
+          gsap.set(subheader, { display: "none" });
+        },
+      });
+    }
+  }, [showSubheader]);
+
   return (
     <HeaderWrapper>
       <HeaderContainer>
@@ -21,7 +59,7 @@ const Header = () => {
             alt='logo'
             width={100}
             height={100}
-            className='-ml-12 mt-4 w-16 h-16'
+            className='-ml-8 mt-4 w-16 h-16'
           />
           <span className='font-semibold text-xl'>
             Task <span className='text-accent'>Bridge</span>
@@ -31,9 +69,19 @@ const Header = () => {
         {/* Nav Links */}
         <NavbarWrapper>
           <NavBar>
-            {navLinks.map((link) => (
-              <NavbarItem key={link.name}>
-                <Link href={link.href}>{link.name}</Link>
+            {navLinks.map((link, idx) => (
+              <NavbarItem key={idx}>
+                <Link
+                  href={link.href}
+                  key={idx}
+                  onMouseEnter={() =>
+                    link.name === "Support"
+                      ? setShowSubheader(true)
+                      : setShowSubheader(false)
+                  }
+                >
+                  {link.name}
+                </Link>
               </NavbarItem>
             ))}
           </NavBar>
@@ -44,6 +92,30 @@ const Header = () => {
           <Link href='/sign-in'>Sign In</Link>
         </SignInBtn>
       </HeaderContainer>
+
+      {/* Subheader */}
+      <Subheader
+        id='subheader'
+        onMouseLeave={() => setShowSubheader(false)}
+        style={{ opacity: 0, scale: 0, display: "none" }}
+      >
+        <SubheaderContent>
+          {subLinks.map((link, idx) => (
+            <SubheaderItem href={link.href} key={idx}>
+              <span className='font-semibold'>{link.title}</span>
+              <span className='text-muted-foreground'>{link.text}</span>
+            </SubheaderItem>
+          ))}
+        </SubheaderContent>
+
+        {/* Subheader Footer */}
+        <SubheaderFooter>
+          <span>Join our dynamic team today!</span>
+          <Link href='#team' className='text-accent hover:text-accent/70 duration-300 transition-colors'>
+            Reach out now
+          </Link>
+        </SubheaderFooter>
+      </Subheader>
     </HeaderWrapper>
   );
 };
