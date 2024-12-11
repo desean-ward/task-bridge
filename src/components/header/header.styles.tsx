@@ -4,12 +4,12 @@ import Link from "next/link";
 import tw from "tailwind-styled-components";
 
 export const HeaderWrapper = tw.section`
-    absolute 
-    top-0
-    w-full
-    px-12 
+    relative 
+    z-10
+    container
     bg-primary
     text-text
+    px-12
 `;
 
 export const HeaderContainer = tw.div`
@@ -51,6 +51,10 @@ export const SignInBtn = tw.button`
 `;
 
 export const Subheader = tw.div`
+    absolute 
+    left-0
+    w-fit
+    bg-primary
     border 
     border-black
     shadow-black/70

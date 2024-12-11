@@ -12,12 +12,16 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "0rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1800px",
       },
     },
     extend: {
+      boxShadow: {
+        'inner-light': 'inset 0 2px 4px rgba(0, 0, 0, 0.1)', // Light inner shadow
+        'inner-dark': 'inset 0 4px 8px rgba(0, 0, 0, 0.25)', // Darker inner shadow
+      },
       colors: {
         text: "#eff6f0",
         background: "#080d0a",
