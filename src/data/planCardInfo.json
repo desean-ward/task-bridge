@@ -1,0 +1,29 @@
+[
+    {
+        "id": "basicPlan",
+        "title": "Basic Plan",
+        "tagline": "Perfect for getting started",
+        "price_monthly": "$0",
+        "features": [
+            "Boost engagement with target responses",
+            "Automate comment replies to enhance audience interaction",
+            "Turn followers into customers with targeted messaging"
+        ],
+        "button_text": "Get Started"
+    },
+    {
+        "id": "aiPlan",
+        "title": "Smart AI Plan",
+        "tagline": "Advanced features for power users",
+        "price_monthly": "$99",
+        "price_yearly": "$1000",
+        "features": [
+            "All features from Free Plan",
+            "AI-powered response generation",
+            "Advanced analytics and insights",
+            "Priority customer support",
+            "Custom branding options"
+        ],
+        "button_text": "Upgrade Now"
+    }
+]

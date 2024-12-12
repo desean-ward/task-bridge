@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Hamburger,
   HeaderContainer,
@@ -30,6 +30,15 @@ const Header = () => {
   const [showSubheader, setShowSubheader] = useState(false);
 
   const [showMenu, setShowMenu] = useState(false);
+
+  //***** Prevent Scrolling On Mobile Menu ***** */
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showMenu]);
 
   {
     /* Subheader Animation */
@@ -108,9 +117,7 @@ const Header = () => {
           <NavBar>
             {navLinks.map((link, idx) => (
               <NavbarItem key={idx}>
-                <Link href={link.href}>
-                  {link.name}
-                </Link>
+                <Link href={link.href}>{link.name}</Link>
               </NavbarItem>
             ))}
             <NavbarItem
