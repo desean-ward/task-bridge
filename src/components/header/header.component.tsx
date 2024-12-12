@@ -40,6 +40,39 @@ const Header = () => {
     }
   }, [showMenu]);
 
+  //***** Header Animation ***** */
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.from("#header", {
+      opacity: 0,
+      y: -100,
+      duration: 1,
+      ease: "expo.in",
+    })
+      .from("#logo", {
+        opacity: 0,
+        x: -100,
+        duration: 0.5,
+        ease: "expo.in",
+      })
+      .from(
+        "#sign-in",
+        {
+          opacity: 0,
+          x: 100,
+          duration: 0.5,
+          ease: "expo.in",
+        },
+        "<"
+      )
+      .from(".nav-link", {
+        opacity: 0,
+        duration: 0.5,
+        ease: "expo.in",
+      });
+  }, []);
+
   {
     /* Subheader Animation */
   }
@@ -97,9 +130,13 @@ const Header = () => {
   }, [showMenu]);
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper id='header'>
       <HeaderContainer>
-        <Link href='/' className='flex items-center justify-center gap-4'>
+        <Link
+          id='logo'
+          href='/'
+          className='flex items-center justify-center gap-4'
+        >
           <Logo
             src='/images/task-bridge-logo.png'
             alt='logo'
@@ -116,12 +153,12 @@ const Header = () => {
         <NavbarWrapper>
           <NavBar>
             {navLinks.map((link, idx) => (
-              <NavbarItem key={idx}>
+              <NavbarItem className='nav-link' key={idx}>
                 <Link href={link.href}>{link.name}</Link>
               </NavbarItem>
             ))}
             <NavbarItem
-              className='cursor-pointer text-2xl'
+              className='nav-link cursor-pointer text-2xl'
               onMouseOver={() => setShowSubheader(true)}
               onMouseLeave={() => setShowSubheader(false)}
             >
@@ -131,7 +168,7 @@ const Header = () => {
         </NavbarWrapper>
 
         {/* Sign In Button */}
-        <SignInBtn>
+        <SignInBtn id='sign-in'>
           <Link href='/sign-in'>Sign In</Link>
         </SignInBtn>
 
@@ -176,10 +213,7 @@ const Header = () => {
       >
         <SubheaderContent>
           {subLinks.map((link, idx) => (
-            <SubheaderItem
-              href={link.href}
-              key={idx}
-            >
+            <SubheaderItem href={link.href} key={idx}>
               <span className='flex items-center gap-2'>
                 {/* Icon */}
                 {link.title === "About Us" && <BsFillInfoSquareFill />}
