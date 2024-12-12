@@ -19,10 +19,10 @@ const AiInfo = () => {
           <p className='font-semibold text-xl'>Engage</p>
 
           {/* Heading */}
-          <h1 className='text-4xl md:text-5xl font-bold'>
+          <h2 className='text-4xl md:text-5xl font-bold'>
             <span className='text-accent'>Transform</span> Your Instagram{" "}
             <span className='text-secondary'>Interactions</span> With A.I.
-          </h1>
+          </h2>
 
           {/* Text */}
           <p>

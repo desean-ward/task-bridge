@@ -3,15 +3,12 @@ import tw from "tailwind-styled-components";
 
 export const HeroWrapper = tw.section`
     relative 
-    -mt-32   
-    md:-top-40
+    -top-10
     container
     w-full 
-    h-full
+    h-fit
     flex 
-    flex-col
     text-white 
-    overflow-hidden
 `;
 
 export const HeroContainer = tw.div`
@@ -20,6 +17,7 @@ export const HeroContainer = tw.div`
     lg:grid-cols-2 
     px-12
     lg:px-0
+    h-screen
 `;
 
 export const LeftContent = tw.div`
@@ -27,12 +25,12 @@ export const LeftContent = tw.div`
     flex-col 
     justify-center  
     gap-12     
-    relative
-    top-20 
-    md:-top-20
-    lg:top-28
-
-    lg:pr-24
+    h-screen
+    lg:pr-24 
+    relative 
+    -top-52
+    md:-top-72
+    lg:top-0
 `;
 
 export const LeftContentBtns = tw.div`
@@ -54,13 +52,12 @@ export const RightContent = tw.div`
     justify-center
     lg:justify-end 
     w-full
-    lg:h-screen
+    h-screen
     gap-8
     relative
-    top-28
-    md:-top-[40vh]
-    lg:top-32
-    overflow-hidden
+    top-32
+    md:-top-6
+    lg:top-0
 `;
 
 export const LeftImgs = tw.div`
@@ -68,7 +65,7 @@ export const LeftImgs = tw.div`
     grid-rows-3 
     gap-8
     relative 
-    -top-8
+    -top-16
 `;
 export const RightImgs = tw.div`
     relative
@@ -76,8 +73,7 @@ export const RightImgs = tw.div`
     grid-rows-3 
     gap-8 
     relative
-    md:top-8 
-    lg:top-28
+    lg:top-20
 `;
 
 export const HeroImg = tw(Image)`

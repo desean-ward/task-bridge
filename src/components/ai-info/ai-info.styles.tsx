@@ -1,12 +1,14 @@
 import tw from "tailwind-styled-components";
 
 export const AiInfoWrapper = tw.section`
-    absolute
-    top-[100vh]
-    w-full 
-    
+    relative
+    top-0
+    w-full
+    lg:h-screen 
+    mb-8 
     py-24 
     bg-white 
+    z-10
 `;
 
 export const AiInfoContainer = tw.div`
