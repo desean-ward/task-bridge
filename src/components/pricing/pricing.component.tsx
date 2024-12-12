@@ -25,7 +25,7 @@ const Pricing = () => {
   return (
     <PricingWrapper id='pricing'>
       <PricingContainer>
-        <p className='text-xl font-semibold'>Plans</p>
+        <p className='text-3xl font-semibold'>Plans</p>
 
         <h2 className='text-5xl font-bold'>Pricing <span className="text-accent">Options</span></h2>
 

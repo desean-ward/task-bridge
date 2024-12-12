@@ -7,6 +7,7 @@ export const OurTeamWrapper = tw.section`
     h-full
     bg-white
     text-black
+    text-xl
     z-10
     py-24
 `;

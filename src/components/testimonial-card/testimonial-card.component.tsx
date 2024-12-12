@@ -31,7 +31,7 @@ const Testimonial = ({ person }: PersonProps) => {
       </Stars>
 
       {/* Customer Quote */}
-      <p className='italic font-semibold'>&quot;{text}&quot;</p>
+      <p className='italic'>&quot;{text}&quot;</p>
       {/* Footer */}
       <TestimonialFooter>
         <div className='flex gap-4 border-r pr-8'>
@@ -45,8 +45,8 @@ const Testimonial = ({ person }: PersonProps) => {
 
           {/* Customer Info */}
           <div className='flex flex-col gap-1'>
-            <span className='font-bold text-xl text-accent'>{name}</span>
-            <span>{title}</span>
+            <span className='font-bold text-accent'>{name}</span>
+            <span className="text-base">{title}</span>
           </div>
         </div>
 

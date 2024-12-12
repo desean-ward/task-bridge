@@ -13,14 +13,14 @@ const UnlockThePower = () => {
       <UnlockThePowerContainer>
         <LeftContentContainer>
           {/* Heading */}
-          <h2 className='text-5xl font-bold'>
+          <h2 className='text-5xl font-bold text-balance'>
             <span className='text-accent'>Unlock</span> the Power of{" "}
             <span className='text-secondary'>Automation</span> with Task{" "}
             <span className='text-accent'>Bridge</span>
           </h2>
 
           {/* Text */}
-          <p>
+          <p className="text-xl">
             Task Bridge empowers your business to connect with customers
             effortlessly, enhancing engagement through automated responses.
             Transform every interaction into a valuable opportunity and watch

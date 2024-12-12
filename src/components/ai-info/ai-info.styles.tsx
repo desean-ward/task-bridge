@@ -24,7 +24,6 @@ export const AiInfoContainer = tw.div`
 export const CardsWrapper = tw.div`
     w-full 
     grid 
-
     lg:grid-cols-3
     gap-4
 `;
@@ -37,7 +36,7 @@ export const CardsContainer = tw.div`
     justify-center 
     gap-8
     text-center
-    bg-primary
+    bg-gradient-to-b from-black to-primary
     p-8
     rounded-lg
 `;
@@ -46,11 +45,13 @@ export const ContentBtns = tw.div`
     flex 
     gap-4
     font-semibold
+    text-xl
 `;
 
 export const ContentBtn = tw.button`
     px-4
-    py-2
+    pt-2
+    pb-3
     rounded-md
     duration-300 
     transitions-colors

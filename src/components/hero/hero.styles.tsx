@@ -4,14 +4,15 @@ import tw from "tailwind-styled-components";
 export const HeroWrapper = tw.section`
     relative 
     -top-10
-    container
     w-full 
     h-fit
     flex 
+    bg-gradient-to-b from-black to-primary
     text-white 
 `;
 
 export const HeroContainer = tw.div`
+    container
     grid 
     grid-rows-2
     lg:grid-cols-2 
@@ -37,6 +38,7 @@ export const LeftContent = tw.div`
 export const LeftContentBtns = tw.div`
     flex 
     gap-4
+    text-xl
 `;
 
 export const LeftContentBtn = tw.button`

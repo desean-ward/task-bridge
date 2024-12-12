@@ -4,8 +4,9 @@ export const TestimonialsWrapper = tw.section`
     relative
     top-0
     w-full
-    bg-primary
-    text-white 
+    bg-gradient-to-b from-black to-primary
+    text-white
+    text-xl 
     py-24
     px-4
 `;

@@ -16,16 +16,16 @@ const AiInfo = () => {
     <AiInfoWrapper id='features'>
       <AiInfoContainer>
         <div className='w-full max-w-5xl h-full flex flex-col items-center gap-12 text-center'>
-          <p className='font-semibold text-xl'>Engage</p>
+          <p className='font-semibold text-3xl'>Engage</p>
 
           {/* Heading */}
-          <h2 className='text-4xl md:text-5xl font-bold'>
+          <h2 className='text-4xl md:text-5xl font-bold text-balance'>
             <span className='text-accent'>Transform</span> Your Instagram{" "}
             <span className='text-secondary'>Interactions</span> With A.I.
           </h2>
 
           {/* Text */}
-          <p>
+          <p className='text-balance text-xl'>
             With Task Bridge, you can effortlessly connect with your audience
             through AI-driven responses. Our platform ensures that every comment
             and direct message is handled promptly and effectively.

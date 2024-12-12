@@ -144,7 +144,7 @@ const Header = () => {
             height={100}
             className='-ml-8 mt-4 w-16 h-16 scroll-smooth'
           />
-          <span className='font-semibold text-xl'>
+          <span className='font-semibold text-2xl'>
             Task <span className='text-accent'>Bridge</span>
           </span>
         </Link>

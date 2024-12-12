@@ -7,8 +7,8 @@ export const HeaderWrapper = tw.section`
     sticky 
     top-0 
     z-50
-    bg-primary
-    text-text
+    bg-black
+    text-white
     px-8
     md:px-12
 `;
@@ -50,12 +50,13 @@ export const NavbarItem = tw.li`
 
 export const SignInBtn = tw.button`
     px-4 
-    py-1
+    pt-1 
+    pb-2
     rounded-md 
     bg-accent
     hover:bg-accent/70
     text-black
-    text-md
+    text-xl
     font-semibold
     duration-300 
     transition-colors

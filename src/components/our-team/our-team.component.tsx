@@ -13,10 +13,12 @@ const OurTeam = () => {
   return (
     <OurTeamWrapper id='team'>
       <OurTeamContainer>
-        <p className='text-xl font-semibold'>Meet</p>
+        <p className='text-3xl font-semibold'>Meet</p>
 
         {/* Heading */}
-        <h2 className='text-5xl font-bold'>Our Team</h2>
+        <h2 className='text-6xl font-bold'>
+          Our <span className='text-accent'>Team</span>
+        </h2>
 
         {/* Subheading */}
         <p>Dedicated professionals driving our mission forward.</p>
@@ -43,7 +45,7 @@ const OurTeam = () => {
                 </span>
               </div>
 
-              <span>{member.desc}</span>
+              <span className='text-balance'>{member.desc}</span>
             </TeamMember>
           ))}
         </TeamMembersContainer>

@@ -3,9 +3,9 @@ import tw from "tailwind-styled-components";
 export const UnlockThePowerWrapper = tw.section`
     w-full 
     h-screen
+    bg-gradient-to-b from-black to-primary
     text-white 
     relative
-    
     lg:-top-16
 `;
 

@@ -5,6 +5,7 @@ export const PricingWrapper = tw.section`
     top-0
     w-full
     h-full
+    text-xl
     bg-gradient-to-b from-black to-primary
     text-white
     py-24
@@ -22,7 +23,7 @@ export const PricingContainer = tw.div`
 export const PlansWrapper = tw.div`
     w-full 
     flex 
-    justify-center 
+    justify-center
 `;
 
 export const PlansContainer = tw.div`

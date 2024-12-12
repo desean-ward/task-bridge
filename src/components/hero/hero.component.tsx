@@ -44,7 +44,7 @@ const Hero = () => {
           </h1>
 
           {/* Text */}
-          <p>
+          <p className="text-xl">
             Welcome to Task Bridge, where conversational marketing meets
             automation. Effortlessly engage your audience and turn interactions
             into opportunities.
