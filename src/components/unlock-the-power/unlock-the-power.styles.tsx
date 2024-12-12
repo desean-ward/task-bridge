@@ -6,7 +6,6 @@ export const UnlockThePowerWrapper = tw.section`
     bg-gradient-to-b from-black to-primary
     text-white 
     relative
-    lg:-top-16
 `;
 
 export const UnlockThePowerContainer = tw.div`

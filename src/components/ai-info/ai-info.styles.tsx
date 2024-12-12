@@ -5,7 +5,6 @@ export const AiInfoWrapper = tw.section`
     top-0
     w-full
     lg:h-screen 
-    mb-8 
     py-24 
     px-4
     bg-white 
