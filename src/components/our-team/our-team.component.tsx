@@ -1,6 +1,7 @@
-import React from "react";
+"use client";
 import {
   Avatar,
+  Heading,
   OurTeamContainer,
   OurTeamWrapper,
   TeamMember,
@@ -8,25 +9,69 @@ import {
 } from "./our-team.styles";
 import team from "@/data/team.json";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 const OurTeam = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from("#team-heading", {
+      opacity: 0,
+      y: 100,
+      duration: 0.3,
+      scrollTrigger: {
+        trigger: "#team-heading",
+        start: "top 70%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    gsap.from(".team-member", {
+      opacity: 0,
+      y: 100,
+      duration: 0.3,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: ".team-member",
+        start: "top 70%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    gsap.from("#team-hiring", {
+      opacity: 0,
+      y: 100,
+      duration: 0.3,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: "#team-hiring",
+        start: "top 70%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
+
   return (
-    <OurTeamWrapper id='team'>
+    <OurTeamWrapper id='team-wrapper'>
       <OurTeamContainer>
-        <p className='text-3xl font-semibold'>Meet</p>
+        <Heading id='team-heading'>
+          <p className='text-3xl font-semibold'>Meet</p>
 
-        {/* Heading */}
-        <h2 className='text-6xl font-bold'>
-          Our <span className='text-accent'>Team</span>
-        </h2>
+          {/* Heading */}
+          <h2 className='text-6xl font-bold'>
+            Our <span className='text-accent'>Team</span>
+          </h2>
 
-        {/* Subheading */}
-        <p>Dedicated professionals driving our mission forward.</p>
+          {/* Subheading */}
+          <p>Dedicated professionals driving our mission forward.</p>
+        </Heading>
 
         {/* Team Members */}
         <TeamMembersContainer>
           {team.map((member, idx) => (
-            <TeamMember key={idx}>
+            <TeamMember className='team-member' key={idx}>
               <Avatar>
                 <Image
                   src={member.avatar}
@@ -52,7 +97,7 @@ const OurTeam = () => {
 
         {/* Our Team Foter */}
         <div
-          id='hiring'
+          id='team-hiring'
           className='flex flex-col items-center justify-center gap-4'
         >
           <h3 className='text-3xl font-bold'>We&apos;re hiring!</h3>

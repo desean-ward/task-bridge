@@ -21,6 +21,14 @@ export const OurTeamContainer = tw.div`
     h-full
 `;
 
+export const Heading = tw.div`
+    flex
+    flex-col
+    gap-12
+    items-center
+    h-full
+`
+
 export const TeamMembersContainer = tw.div`
     container
     grid

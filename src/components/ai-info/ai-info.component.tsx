@@ -22,25 +22,23 @@ const AiInfo = () => {
     gsap.from("#heading", {
       opacity: 0,
       y: 100,
-      duration: 1,
-      ease: "ease.in",
+      duration: 0.5,
       scrollTrigger: {
         trigger: "#heading",
-        start: "top 50%",
-        toggleActions: "play none none none", 
+        start: "top 70%",
+        toggleActions: "play none none none",
       },
     });
 
     gsap.from("#cards", {
       opacity: 0,
       y: 100,
-      duration: 1,
-      ease: "ease.in",
+      duration: 0.5,
       scrollTrigger: {
         trigger: "#cards",
-        start: "top 60%",
+        start: "top 70%",
 
-        toggleActions: "play none none none", 
+        toggleActions: "play none none none",
       },
     });
 
@@ -48,12 +46,11 @@ const AiInfo = () => {
       opacity: 0,
       y: 100,
       duration: 1,
-      ease: "ease.in",
       scrollTrigger: {
         trigger: "#btns",
-        start: "top 80%",
+        start: "top 70%",
 
-        toggleActions: "play none none none", 
+        toggleActions: "play none none none",
       },
     });
   }, []);
