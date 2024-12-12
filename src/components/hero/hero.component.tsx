@@ -11,13 +11,33 @@ import {
   RightContent,
   RightImgs,
 } from "./hero.styles";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
+  //******* Left Side Animation ****** */
+  useGSAP(() => {
+    gsap.from("#left", {
+      opacity: 0,
+      x: -100,
+      duration: 1,
+      ease: "ease.in",
+      delay: 2.3,
+    });
+
+    gsap.from("#right", {
+      opacity: 0,
+      duration: 1,
+      ease: "ease.in",
+      delay: 2.3,
+    });
+  }, []);
+
   return (
     <HeroWrapper>
       <HeroContainer>
         {/* Left Side Content */}
-        <LeftContent>
+        <LeftContent id='left'>
           <h1 className='text-4xl md:text-5xl font-bold '>
             <span className='text-accent'>Transform</span> Your Instagram{" "}
             <span className='text-secondary'>Engagement</span> With Ease
@@ -42,7 +62,7 @@ const Hero = () => {
         </LeftContent>
 
         {/* Right Side Content */}
-        <RightContent>
+        <RightContent id='right'>
           <LeftImgs>
             <span className='rounded-lg overflow-hidden'>
               <HeroImg
