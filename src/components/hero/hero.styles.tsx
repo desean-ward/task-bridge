@@ -15,7 +15,8 @@ export const HeroContainer = tw.div`
     grid 
     grid-rows-2
     lg:grid-cols-2 
-    px-12
+    px-8
+    md:px-12
     lg:px-0
     h-screen
 `;

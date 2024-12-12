@@ -7,6 +7,7 @@ export const AiInfoWrapper = tw.section`
     lg:h-screen 
     mb-8 
     py-24 
+    px-4
     bg-white 
     z-10
 `;
@@ -17,7 +18,7 @@ export const AiInfoContainer = tw.div`
     flex-col 
     items-center 
     gap-12
-    px-8
+
 `;
 
 export const CardsWrapper = tw.div`

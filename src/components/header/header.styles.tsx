@@ -8,7 +8,8 @@ export const HeaderWrapper = tw.section`
     z-10
     bg-primary
     text-text
-    px-12
+    px-8
+    md:px-12
     `;
 
 export const HeaderContainer = tw.div`
@@ -131,7 +132,8 @@ export const MobileMenuContainer = tw.div`
 
 export const Hamburger = tw.div`
     absolute 
-    right-12
+    right-4
+    md:right-8
     top-6
     z-10
     lg:hidden

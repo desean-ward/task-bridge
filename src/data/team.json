@@ -1,0 +1,38 @@
+[
+    {
+        "avatar": "/images/team/alice-johnson.jpg",
+        "name": "Alice Johnson",
+        "title": "CEO & Founder", 
+        "desc": "Passionate about transforming marketing through innovative automation strategies and exceptional customer experiences."
+    },
+    {
+        "avatar": "/images/team/mark-yu.jpg",
+        "name": "Mark Yu",
+        "title": "CTO", 
+        "desc": "Expert in technology solutions, driving our platform's development and ensuring seamless user experiences."
+    },
+    {
+        "avatar": "/images/team/sara-lee.jpg",
+        "name": "Sara Lee",
+        "title": "Marketing Director", 
+        "desc": "Creative strategist focused on building brand awareness and engaging our audience effectively."
+    },
+    {
+        "avatar": "/images/team/tom-brown.jpg",
+        "name": "Tom Brown",
+        "title": "Sales Manager", 
+        "desc": "Driven sales professional dedicated to expanding our client base and fostering lasting relationships."
+    },
+    {
+        "avatar": "/images/team/emily-davis.jpg",
+        "name": "Emily Davis",
+        "title": "Customer Success", 
+        "desc": "Committed to ensuring our clients achieve their goals and maximize their experience with us."
+    },
+    {
+        "avatar": "/images/team/james-wilson.jpg",
+        "name": "James Wilson",
+        "title": "Product Designer", 
+        "desc": "Innovative designer focused on creating user-friendly interfaces that enhance our platform's functionality."
+    }
+]

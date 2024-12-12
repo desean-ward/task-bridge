@@ -22,8 +22,7 @@ export const LeftContentContainer = tw.div`
     justify-center 
     gap-8 
     relative 
-    px-12 
-    lg:px-24
+    px-8 
 `;
 export const RightContentContainer = tw.div`
     relative 
