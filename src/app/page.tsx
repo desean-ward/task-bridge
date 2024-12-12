@@ -1,4 +1,5 @@
 import AiInfo from "@/components/ai-info/ai-info.component";
+import Footer from "@/components/footer/footer.component";
 import Hero from "@/components/hero/hero.component";
 import OurTeam from "@/components/our-team/our-team.component";
 import Pricing from "@/components/pricing/pricing.component";
@@ -14,6 +15,7 @@ export default function Home() {
       <OurTeam />
       <Testimonials />
       <Pricing />
+      <Footer />
     </main>
   );
 }

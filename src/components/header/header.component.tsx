@@ -179,11 +179,6 @@ const Header = () => {
             <SubheaderItem
               href={link.href}
               key={idx}
-              onClick={(e) => {
-                e.preventDefault();
-                setShowSubheader(false);
-                setShowMenu(false);
-              }}
             >
               <span className='flex items-center gap-2'>
                 {/* Icon */}
