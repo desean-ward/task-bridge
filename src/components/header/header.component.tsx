@@ -43,8 +43,8 @@ const Header = () => {
       gsap.to(subheader, {
         opacity: 1,
         scale: 1,
-        duration: 0.3,
-        ease: "power4.out",
+        duration: 0.5,
+        ease: "power4.in",
         display: "flex", // Ensure it's visible
       });
     } else {
@@ -52,7 +52,7 @@ const Header = () => {
       gsap.to(subheader, {
         opacity: 0,
         scale: 0,
-        duration: 0.3,
+        duration: 0.5,
         ease: "power4.out",
         onComplete: () => {
           // Ensure it's hidden after the animation
@@ -96,7 +96,7 @@ const Header = () => {
             alt='logo'
             width={100}
             height={100}
-            className='-ml-8 mt-4 w-16 h-16'
+            className='-ml-8 mt-4 w-16 h-16 scroll-smooth'
           />
           <span className='font-semibold text-xl'>
             Task <span className='text-accent'>Bridge</span>
@@ -108,7 +108,7 @@ const Header = () => {
           <NavBar>
             {navLinks.map((link, idx) => (
               <NavbarItem key={idx}>
-                <Link href={link.href} key={idx}>
+                <Link href={link.href}>
                   {link.name}
                 </Link>
               </NavbarItem>
@@ -199,7 +199,7 @@ const Header = () => {
         <SubheaderFooter>
           <span>Join our dynamic team today!</span>
           <Link
-            href='#team'
+            href='#hiring'
             className='text-accent hover:text-accent/70 duration-300 transition-colors'
           >
             Reach out now

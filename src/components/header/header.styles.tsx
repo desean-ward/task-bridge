@@ -4,13 +4,14 @@ import Link from "next/link";
 import tw from "tailwind-styled-components";
 
 export const HeaderWrapper = tw.section`
-    relative 
-    z-10
+    sticky 
+    top-0 
+    z-50
     bg-primary
     text-text
     px-8
     md:px-12
-    `;
+`;
 
 export const HeaderContainer = tw.div`
     container

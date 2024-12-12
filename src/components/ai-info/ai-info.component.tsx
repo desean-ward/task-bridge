@@ -13,7 +13,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 const AiInfo = () => {
   return (
-    <AiInfoWrapper>
+    <AiInfoWrapper id='features'>
       <AiInfoContainer>
         <div className='w-full max-w-5xl h-full flex flex-col items-center gap-12 text-center'>
           <p className='font-semibold text-xl'>Engage</p>
@@ -34,8 +34,8 @@ const AiInfo = () => {
 
         {/* Card Grid */}
         <CardsWrapper>
-          {aiInfo.map((card) => (
-            <CardsContainer>
+          {aiInfo.map((card, idx) => (
+            <CardsContainer key={idx}>
               <span className='w-full flex justify-center text-accent'>
                 <ImCogs size={42} />
               </span>

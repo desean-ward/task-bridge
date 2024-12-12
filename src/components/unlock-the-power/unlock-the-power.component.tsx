@@ -31,7 +31,7 @@ const UnlockThePower = () => {
         {/* Right Content */}
         <RightContentContainer>
           <Image
-            src='/images/automation-2.jpg'
+            src='/images/automation-3.jpg'
             alt='Automation'
             fill
             className='object-cover h-screen'

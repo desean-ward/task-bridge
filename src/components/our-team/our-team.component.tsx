@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const OurTeam = () => {
   return (
-    <OurTeamWrapper>
+    <OurTeamWrapper id='team'>
       <OurTeamContainer>
         <p className='text-xl font-semibold'>Meet</p>
 
@@ -23,8 +23,8 @@ const OurTeam = () => {
 
         {/* Team Members */}
         <TeamMembersContainer>
-          {team.map((member) => (
-            <TeamMember>
+          {team.map((member, idx) => (
+            <TeamMember key={idx}>
               <Avatar>
                 <Image
                   src={member.avatar}
@@ -49,12 +49,17 @@ const OurTeam = () => {
         </TeamMembersContainer>
 
         {/* Our Team Foter */}
-        <div className="flex flex-col items-center justify-center gap-4">
-          <h3 className='text-3xl font-bold'>We're hiring!</h3>
+        <div
+          id='hiring'
+          className='flex flex-col items-center justify-center gap-4'
+        >
+          <h3 className='text-3xl font-bold'>We&apos;re hiring!</h3>
 
           <p>Join our dynamic team and make an impact.</p>
 
-          <button className="border rounded-lg p-4 bg-secondary hover:bg-secondary/70 text-white font-semibold">Open Positions</button>
+          <button className='border rounded-lg p-4 bg-secondary hover:bg-secondary/70 text-white font-semibold'>
+            Open Positions
+          </button>
         </div>
       </OurTeamContainer>
     </OurTeamWrapper>
