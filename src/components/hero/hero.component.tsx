@@ -18,8 +18,9 @@ const Hero = () => {
       <HeroContainer>
         {/* Left Side Content */}
         <LeftContent>
-          <h1 className='text-5xl font-bold'>
-            Transform Your Instagram Engagement With Ease
+          <h1 className='text-4xl md:text-5xl font-bold '>
+            <span className='text-accent'>Transform</span> Your Instagram{" "}
+            <span className='text-secondary'>Engagement</span> With Ease
           </h1>
 
           {/* Text */}
@@ -72,15 +73,14 @@ const Hero = () => {
 
           {/* Right Images */}
           <RightImgs>
-          <span className="rounded-lg overflow-hidden">
-            <HeroImg
-              src='/images/man-2.webp'
-              alt='man 2'
-              width={400}
-              height={400}
-            />
+            <span className='rounded-lg overflow-hidden'>
+              <HeroImg
+                src='/images/man-2.webp'
+                alt='man 2'
+                width={400}
+                height={400}
+              />
             </span>
-
 
             <span className='shadow-inner-dark rounded-lg overflow-hidden'>
               <HeroImg
@@ -88,17 +88,17 @@ const Hero = () => {
                 alt='woman 3'
                 width={400}
                 height={400}
-                className="shadow-inner-dark"
+                className='shadow-inner-dark'
               />
             </span>
 
-            <span className="rounded-lg overflow-hidden">
-            <HeroImg
-              src='/images/man-3.webp'
-              alt='man 3'
-              width={400}
-              height={400}
-            />
+            <span className='rounded-lg overflow-hidden'>
+              <HeroImg
+                src='/images/man-3.webp'
+                alt='man 3'
+                width={400}
+                height={400}
+              />
             </span>
           </RightImgs>
         </RightContent>

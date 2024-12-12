@@ -172,7 +172,8 @@ const Header = () => {
             <SubheaderItem
               href={link.href}
               key={idx}
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 setShowSubheader(false);
                 setShowMenu(false);
               }}

@@ -6,13 +6,13 @@ import tw from "tailwind-styled-components";
 export const HeaderWrapper = tw.section`
     relative 
     z-10
-    container
     bg-primary
     text-text
     px-12
-`;
+    `;
 
 export const HeaderContainer = tw.div`
+    container
     flex 
     justify-between 
     items-center 
@@ -48,12 +48,12 @@ export const NavbarItem = tw.li`
 
 export const SignInBtn = tw.button`
     px-4 
-    py-2 
+    py-1
     rounded-md 
     bg-accent
     hover:bg-accent/70
     text-black
-    text-lg
+    text-md
     font-semibold
     duration-300 
     transition-colors
