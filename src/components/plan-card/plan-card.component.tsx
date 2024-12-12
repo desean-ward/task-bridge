@@ -24,10 +24,20 @@ const PlanCard = ({ plan }: PlanCardProps) => {
   const { title, tagline, price_monthly, price_yearly, features, button_text } =
     plan;
   return (
-    <PlanCardContainer>
+    <PlanCardContainer
+      className={`${
+        title === "Basic Plan" ? "border-secondary/40" : "border-accent/40"
+      }`}
+    >
       {/* Title */}
       <div>
-        <Title className='text-accent'>{title}</Title>
+        <Title
+          className={`${
+            title === "Basic Plan" ? "text-secondary" : "text-accent"
+          }`}
+        >
+          {title}
+        </Title>
         <Tagline>{tagline}</Tagline>
       </div>
       <hr className='opacity-[0.25]' />
@@ -35,7 +45,11 @@ const PlanCard = ({ plan }: PlanCardProps) => {
       {/* Price */}
       <div className='flex flex-col justify-between gap-4 py-8 mb-4 relative top-0'>
         <div className='flex flex-col justify-start'>
-          <PriceMonthly className='text-accent'>
+          <PriceMonthly
+            className={`${
+              title === "Basic Plan" ? "text-secondary" : "text-accent"
+            }`}
+          >
             {price_monthly} <span className='text-lg font-normal'>/ month</span>
           </PriceMonthly>
 
@@ -47,7 +61,13 @@ const PlanCard = ({ plan }: PlanCardProps) => {
         </div>
 
         {/* Button */}
-        <button className='w-full bg-secondary hover:bg-secondary/70 text-xl text-center pt-2 pb-3 font-semibold rounded-md duration-300 transition-colors'>
+        <button
+          className={`${
+            title === "Basic Plan"
+              ? "bg-secondary hover:bg-secondary/70"
+              : "bg-accent hover:bg-accent/70"
+          } w-full  text-xl text-center pt-2 pb-3 font-semibold rounded-md duration-300 transition-colors`}
+        >
           {button_text}
         </button>
       </div>
@@ -57,7 +77,13 @@ const PlanCard = ({ plan }: PlanCardProps) => {
       <div className='flex flex-col gap-1 py-8'>
         {features.map((feature, idx) => (
           <Feature key={idx} className=''>
-            <span className='text-accent'>✓</span>
+            <span
+              className={`${
+                title === "Basic Plan" ? "text-secondary" : "text-accent"
+              }`}
+            >
+              ✓
+            </span>
             <span>{feature}</span>
           </Feature>
         ))}

@@ -7,7 +7,6 @@ export const PlanCardContainer = tw.div`
     justify-start 
     p-8 
     border 
-    border-white/20
     rounded-xl
     shadow-black 
     shadow-2xl

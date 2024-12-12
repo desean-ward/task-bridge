@@ -45,7 +45,7 @@ const Testimonial = ({ person }: PersonProps) => {
 
           {/* Customer Info */}
           <div className='flex flex-col gap-1'>
-            <span className='font-bold text-xl'>{name}</span>
+            <span className='font-bold text-xl text-accent'>{name}</span>
             <span>{title}</span>
           </div>
         </div>
@@ -53,8 +53,8 @@ const Testimonial = ({ person }: PersonProps) => {
         {/* Company */}
         <div className='pl-8 flex gap-2 items-center'>
           {/* Logo */}
-          <FaWebflow size={28} />
-          <span className='font-semibold text-xl'>Webflow</span>
+          <FaWebflow size={28} className='text-secondary' />
+          <span className='font-semibold text-xl text-accent'>Webflow</span>
         </div>
       </TestimonialFooter>
     </TestimonialWrapper>
