@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   AiInfoContainer,
@@ -10,12 +11,60 @@ import {
 import aiInfo from "@/data/aiInfo.json";
 import { ImCogs } from "react-icons/im";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const AiInfo = () => {
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#heading", {
+      opacity: 0,
+      y: 100,
+      duration: 1,
+      ease: "ease.in",
+      scrollTrigger: {
+        trigger: "#heading",
+        start: "top 50%",
+        toggleActions: "play none none none", 
+      },
+    });
+
+    gsap.from("#cards", {
+      opacity: 0,
+      y: 100,
+      duration: 1,
+      ease: "ease.in",
+      scrollTrigger: {
+        trigger: "#cards",
+        start: "top 60%",
+
+        toggleActions: "play none none none", 
+      },
+    });
+
+    gsap.from("#btns", {
+      opacity: 0,
+      y: 100,
+      duration: 1,
+      ease: "ease.in",
+      scrollTrigger: {
+        trigger: "#btns",
+        start: "top 80%",
+
+        toggleActions: "play none none none", 
+      },
+    });
+  }, []);
+
   return (
     <AiInfoWrapper id='features'>
       <AiInfoContainer>
-        <div className='w-full max-w-5xl h-full flex flex-col items-center gap-12 text-center'>
+        <div
+          id='heading'
+          className='w-full max-w-5xl h-full flex flex-col items-center gap-12 text-center'
+        >
           <p className='font-semibold text-3xl'>Engage</p>
 
           {/* Heading */}
@@ -33,7 +82,7 @@ const AiInfo = () => {
         </div>
 
         {/* Card Grid */}
-        <CardsWrapper>
+        <CardsWrapper id='cards'>
           {aiInfo.map((card, idx) => (
             <CardsContainer key={idx}>
               <span className='w-full flex justify-center text-accent'>
@@ -52,7 +101,7 @@ const AiInfo = () => {
         </CardsWrapper>
 
         {/* Buttons */}
-        <ContentBtns>
+        <ContentBtns id='btns'>
           <ContentBtn className='bg-secondary hover:bg-secondary/70 text-white'>
             Learn More
           </ContentBtn>
