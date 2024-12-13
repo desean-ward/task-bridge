@@ -2,6 +2,7 @@ import tw from "tailwind-styled-components";
 
 export const PlanCardContainer = tw.div`
     w-full 
+    h-full
     flex 
     flex-col 
     justify-start 
