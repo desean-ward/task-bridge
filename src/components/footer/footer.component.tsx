@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import {
   FooterContainer,
   FooterWrapper,
@@ -10,10 +10,28 @@ import Link from "next/link";
 import { Logo } from "../header/header.styles";
 import footerLinks from "@/data/footerLinks.json";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 const Footer = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from("#footer", {
+      opacity: 0,
+      y: 100,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: "#footer",
+        start: "top 95%",
+        toggleActions: "play reverse none none",
+      },
+    });
+  });
+
   return (
-    <FooterWrapper>
+    <FooterWrapper id='#footer-wrapper'>
       <FooterContainer>
         <Link href='/' className='flex items-center justify-center gap-4'>
           <Logo
@@ -71,14 +89,25 @@ const Footer = () => {
           />
         </SocialIcons>
       </FooterContainer>
-      <div className='flex justify-center items-center gap-8 bg-primary text-white py-8 relative bottom-0'>
+
+      {/* Footer Bottom */}
+      <div
+        id='footer'
+        className='flex justify-center items-center gap-8 bg-primary text-white py-8 relative bottom-0'
+      >
         <span>
           &copy; {new Date().getFullYear()} Task Bridge. All rights reserved
         </span>
 
-        <span className="cursor-pointer text-accent hover:text-accent/70">Privacy Policy</span>
-        <span className="cursor-pointer text-accent hover:text-accent/70">Terms of Service</span>
-        <span className="cursor-pointer text-accent hover:text-accent/70">Cookie Settings</span>
+        <span className='cursor-pointer text-accent hover:text-accent/70'>
+          Privacy Policy
+        </span>
+        <span className='cursor-pointer text-accent hover:text-accent/70'>
+          Terms of Service
+        </span>
+        <span className='cursor-pointer text-accent hover:text-accent/70'>
+          Cookie Settings
+        </span>
       </div>
     </FooterWrapper>
   );
