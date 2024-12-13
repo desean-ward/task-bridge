@@ -5,36 +5,66 @@ import {
   UnlockThePowerContainer,
   UnlockThePowerWrapper,
 } from "./unlock-the-power.styles";
-import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ImageSlider from "../unlock-image-slider/unlock-image-slider.component";
 
 const UnlockThePower = () => {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // Animate #power-left
     gsap.from("#power-left", {
       opacity: 0,
       x: -100,
       duration: 1,
-      ease: "ease.in",
+      ease: "power1.in",
       scrollTrigger: {
         trigger: "#power-wrapper",
-        start: "top 30%",
+        start: "top center",
         toggleActions: "play reverse play reverse",
       },
     });
 
-    gsap.from("#power-right", {
-      opacity: 0,
-      duration: 1,
-      ease: "ease.in",
-      scrollTrigger: {
-        trigger: "#power-wrapper",
-        start: "top 30%",
+    // Pin and animate #power-wrapper
+    ScrollTrigger.create({
+      trigger: "#power-wrapper",
+      start: "top top", // Pin starts when wrapper hits top
+      end: "+=100%", // Pin duration: adjust based on animation length
+      pin: true, // Pin #power-wrapper to top
+      pinSpacing: true, // Reverse the pinning
+      markers: false, // Debug markers
+    });
 
-        toggleActions: "play reverse play reverse",
+    // Scale animation for #power-right
+    gsap.fromTo(
+      "#power-right",
+      { scale: 0, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: "#power-wrapper",
+          start: "top top", // Begin scaling as soon as wrapper is pinned
+          end: "bottom top", // Stop scaling when wrapper scrolls out of view
+          scrub: true, // Smooth scroll-tied animation
+          markers: false, // Debug markers
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+
+    // Parallax effect for the next section
+    gsap.to("#power-right", {
+      display: "fixed",
+      top: 0, // Move content upwards for parallax
+      ease: "none", // Smooth, linear motion
+      scrollTrigger: {
+        trigger: "#team-wrapper",
+        start: "top bottom", // Start when #next-section enters viewport
+        end: "bottom top", // End when it leaves viewport
+        scrub: true, // Ties animation to scroll
       },
     });
   }, []);
@@ -61,12 +91,7 @@ const UnlockThePower = () => {
 
         {/* Right Content */}
         <RightContentContainer id='power-right'>
-          <Image
-            src='/images/automation-3.jpg'
-            alt='Automation'
-            fill
-            className='object-cover h-screen'
-          />
+          <ImageSlider />
         </RightContentContainer>
       </UnlockThePowerContainer>
     </UnlockThePowerWrapper>

@@ -30,7 +30,7 @@ const OurTeam = () => {
 
     gsap.from(".team-member", {
       opacity: 0,
-      y: 100,
+      scale: 0,
       duration: 0.3,
       stagger: 0.1,
       scrollTrigger: {
